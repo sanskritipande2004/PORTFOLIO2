@@ -1097,28 +1097,150 @@
 }
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
 }
 
 .skill-card {
-  background-color: #2b2b3c;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  background: linear-gradient(145deg, #2b2b3c, #1f1f2b);
+  padding: 22px;
+  border-radius: 16px;
   color: #ffffff;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.skill-card:hover {
-  transform: scale(1.02);
-}
-
+/* ICON + TITLE */
 .skill-card h3 {
-  margin-bottom: 10px;
-  color: #a1c4fd;
+  margin-bottom: 12px;
+  color: #b9b9fb;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-card i {
+  color: #b9b9fb;
+}
+
+/* TEXT */
+.skill-card p {
+  font-size: 14px;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+/* 🔥 GLOW HOVER EFFECT */
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 0 15px rgba(185, 185, 251, 0.3),
+    0 0 30px rgba(185, 185, 251, 0.15);
+  border: 1px solid rgba(185, 185, 251, 0.4);
+}
+
+/* 🔥 Universal Glow Card */
+.glow-card {
+  transition: all 0.3s ease;
+  border-radius: 15px;
+  position: relative;
+}
+
+/* Glow effect */
+.glow-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 0 15px rgba(185, 185, 251, 0.3),
+    0 0 30px rgba(185, 185, 251, 0.15);
+}
+
+/* Optional soft border glow */
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  padding: 1px;
+  background: linear-gradient(120deg, transparent, #b9b9fb, transparent);
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+.project-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;       /* VERY IMPORTANT */
+    border-radius: 10px 10px 0 0;
+}
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* fills nicely */
+}
+.project-links {
+    position: relative;
+    z-index: 2;
+}
+#achievements {
+    padding: 80px 0;
+    background-color: var(--dark-color);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.achievement-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.achievement-card h3 {
+    color: #b9b9fb;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.achievement-card p {
+    color: #d1d5db;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.achievement-proof {
+    margin-top: 15px;
+    background: #1f1f2b;
+    border-radius: 12px;
+    padding: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.achievement-proof img {
+    max-width: 100%;
+    max-height: 200px;   /* 🔥 key change */
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.achievement-card:hover .achievement-proof img {
+    transform: scale(1.05);
 }
 
     </style>
@@ -1152,8 +1274,8 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Hi, I'm <span>Sanskriti Pande</span></h1>
-                    <h2>Java Coder | ML Enthusiast | Web Developer</h2>
-                    <p>I'm a Final year BTech undergraduate majoring in Computer Science Engineering (AIML). I'm passionate about coding, machine learning, and building web applications. I'm actively searching for opportunities to kickstart my journey and make a difference.</p>
+                    <h2>Aspiring Software Engineer | Full Stack Developer | ML Enthusiast</h2>
+                    <p>I’m a final-year B.Tech student in Computer Science Engineering (AI & ML) with a strong foundation in Data Structures & Algorithms, Java, and modern web technologies. I enjoy building scalable web applications and applying machine learning to solve real-world problems. Currently, I’m seeking opportunities where I can contribute, learn, and grow as a developer in a dynamic team.</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn">Get In Touch</a>
                         <a href="#projects" class="btn btn-outline">View Projects</a>
@@ -1175,24 +1297,10 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>I'm Sanskriti Pande, a Computer Science Engineering student</h3>
-                    <p>I’m a Final year B.Tech CSE (AIML) student with a strong foundation in DSA, Java, OOP, and web technologies (HTML/CSS/JS). I’ve interned as an SDE at Bluestock Fintech.</p>
-                    <p>I am now seeking opportunities to learn, grow, and contribute to an innovative tech-driven team.</p>
-                    
-                    <div class="skills">
-                        <h4>My Skills</h4>
-                        <div class="skills-list">
-                            <span class="skill-item">Java</span>
-                            <span class="skill-item">Python</span>
-                            <span class="skill-item">Machine Learning</span>
-                            <span class="skill-item">HTML/CSS</span>
-                            <span class="skill-item">JavaScript</span>
-                            <span class="skill-item">DSA</span>
-                            <span class="skill-item">OOPs</span>
-                            <span class="skill-item">Web Development</span>
-                            <span class="skill-item">Flask</span>
-                        </div>
-                    </div>
+                    <h3>I’m Sanskriti Pande, a Computer Science Engineering student specializing in AI & ML.</h3>
+                    <p>I’m a final-year B.Tech student with a strong foundation in Data Structures & Algorithms, Java, and Object-Oriented Programming. I have hands-on experience in building web applications and applying machine learning techniques to solve real-world problems.</p>
+                    <p>During my internships, I worked as a Software Developer Intern at Bluestock Fintech, where I contributed to improving application performance and user experience, and as a Data Analysis Intern at Excelerate, where I automated data preprocessing and derived insights using Python and data analysis techniques.</p>
+                    <p>I’m currently seeking opportunities where I can leverage my skills, learn from real-world challenges, and contribute to building impactful, technology-driven solutions.</p>
                 </div>
                 <div class="about-image" style="text-align: center; margin-top: 20px;">
                     <img src="undraw_designer_efwz.png" alt="About Sanskriti" style="width: 250px; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
@@ -1213,46 +1321,73 @@
         </div>
         
         <div class="timeline">
+
+            <!-- Internship 1 -->
             <div class="timeline-item">
                 <div class="timeline-date">03/2025 - 04/2025</div>
-                <div class="timeline-content">
+        
+                <div class="timeline-content glow-card">
                     <h3>Software Developer Intern</h3>
                     <h4>Bluestock Fintech</h4>
+        
+                    <ul>
+                        <li>Developed 3+ frontend features in a 5-member team, improving platform responsiveness and user experience</li>
+                        <li>Optimized SQL data synchronization, reducing latency by 40% and increasing system throughput</li>
+                        <li>Resolved 5+ critical bugs, decreasing system errors by 35% and enhancing reliability</li>
+                    </ul>
                 </div>
             </div>
+        
+            <!-- Internship 2 -->
+            <div class="timeline-item">
+                <div class="timeline-date">09/2025 - 10/2025</div>
+        
+                <div class="timeline-content glow-card">
+                    <h3>Data Analysis Intern</h3>
+                    <h4>Excelerate</h4>
+        
+                    <ul>
+                        <li>Automated data preprocessing using Python, reducing manual effort by 40% and improving reporting speed</li>
+                        <li>Applied clustering techniques across 3+ projects to improve data accuracy by 25%</li>
+                        <li>Generated insights from real-world datasets to support data-driven decision making</li>
+                    </ul>
+                </div>
+            </div>
+        
         </div>
-    </div>
 </section>
 <section id="skills" class="section">
     <h2><i class="fas fa-tools" style="color: #f1f1ec;"></i> Skills</h2>
   
     <div class="skills-grid">
+      
       <div class="skill-card">
-        <h3 style="color:#b9b9fb;"><i class="fas fa-code" style="color:#b9b9fb;"></i> Programming Languages</h3>
-        <p>Java, Python, C, SQL</p>
+        <h3><i class="fas fa-code"></i> Programming & Fundamentals</h3>
+        <p>Java, Python, C, SQL, Data Structures & Algorithms (DSA), OOP</p>
       </div>
   
       <div class="skill-card">
-        <h3 style="color:#b9b9fb;"><i class="fas fa-laptop-code" style="color:#b9b9fb;"></i> Web Development</h3>
-        <p>HTML, CSS, JavaScript, Bootstrap, Flask</p>
+        <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
+        <p>HTML, CSS, JavaScript, Bootstrap, Angular, Flask, .NET Core, REST APIs</p>
       </div>
   
       <div class="skill-card">
-        <h3 style="color:#b9b9fb;"><i class="fas fa-database" style="color:#b9b9fb;"></i> Databases</h3>
+        <h3><i class="fas fa-database"></i> Databases</h3>
         <p>MySQL, SQLite</p>
       </div>
   
       <div class="skill-card">
-        <h3 style="color:#b9b9fb;"><i class="fas fa-tools" style="color:#b9b9fb;"></i> Tools & Technologies</h3>
-        <p>Git, GitHub, VS Code, Jupyter</p>
+        <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+        <p>Git, GitHub, VS Code, Jupyter Notebook</p>
       </div>
   
       <div class="skill-card">
-        <h3 style="color:#b9b9fb;"><i class="fas fa-brain" style="color:#b9b9fb;"></i> AI / ML</h3>
-        <p>Scikit-learn, Pandas, NumPy, Matplotlib</p>
+        <h3><i class="fas fa-brain"></i> AI / ML</h3>
+        <p>Scikit-learn, Pandas, NumPy, Matplotlib, Model Training & Evaluation</p>
       </div>
+
     </div>
-  </section>
+</section>
   
   <!-- Education Section -->
 <section id="education">
@@ -1265,28 +1400,28 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-date">2022 - 2026</div>
-                <div class="timeline-content">
+                <div class="timeline-content glow-card">
                     <h3>Bachelor of Technology in Computer Science & Engineering</h3>
                     <h4>United Institute of Technology, Prayagraj</h4>
                     <p>Affiliated to Dr. A P.J. Abdul Kalam Technical University</p>
-                    <p>CGPA: 8.61</p>
+                    <p>CGPA: 8.74</p>
                 </div>
             </div>
             
             <div class="timeline-item">
                 <div class="timeline-date">2022</div>
-                <div class="timeline-content">
+                <div class="timeline-content glow-card">
                     <h3>Intermediate School</h3>
-                    <h4>Girls High School and College, Prayagraj</h4>
+                    <h4>Girls' High School and College, Prayagraj</h4>
                     <p>Percentage: 80%</p>
                 </div>
             </div>
             
             <div class="timeline-item">
                 <div class="timeline-date">2020</div>
-                <div class="timeline-content">
+                <div class="timeline-content glow-card">
                     <h3>High School</h3>
-                    <h4>Girls High School and College, Prayagraj</h4>
+                    <h4>Girls' High School and College, Prayagraj</h4>
                     <p>Percentage: 88%</p>
                 </div>
             </div>
@@ -1301,13 +1436,13 @@
                 <p>Some of the projects I've worked on</p>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card glow-card">
                     <div class="project-image">
                         <img src="sddefault.jpg" alt="Project 1">
                     </div>
                     <div class="project-info">
                         <h3>Spam Mail Prediction</h3>
-                        <p>A predictive model built using Python and scikit-learn for classification tasks.</p>
+                        <p>Developed a spam classification model for 10,000+ emails using TF-IDF and Logistic Regression, improving classification reliability through optimized feature engineering and reduced false positives. The project demonstrates effective use of machine learning techniques for real-world text classification tasks.</p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
                             <span class="project-tag">ML</span>
@@ -1321,7 +1456,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card glow-card">
                     <div class="project-image">
                         <img src="images.png" alt="Project 2">
                     </div>
@@ -1341,7 +1476,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card glow-card">
                     <div class="project-image">
                         <img src="Screenshot 2025-06-07 at 10.24.17 PM.png" alt="Project 3">
                     </div>
@@ -1363,6 +1498,65 @@
                         </div>
                     </div>
                 </div>
+                <div class="project-card glow-card">
+                    <div class="project-image">
+                        <img src="WhatsApp Image 2026-03-22 at 1.12.34 PM.jpeg" alt="Project 4">
+                    </div>
+                    <div class="project-info">
+                        <h3>Continuous Indian Sign Language Recognition </h3>
+                        <p>The Indian Sign Language Recognition project focuses on building a system that can understand and interpret continuous sign language sentences. Using Transformer-based models combined with Connectionist Temporal Classification (CTC), the system processes sequential hand and body keypoints to predict meaningful gloss-level outputs. By leveraging MediaPipe for keypoint extraction and deep learning techniques for sequence modeling, the project aims to bridge communication gaps by translating sign gestures into text. This approach makes sign language interpretation more scalable, accurate, and practical for real-world applications.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">Transformers</span>
+                            <span class="project-tag">CTC</span>
+                            <span class="project-tag">MediaPipe</span>
+                            <span class="project-tag">Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- Replace with your actual GitHub repo links -->
+                            <a href="https://github.com/sanskritipande2004/SIGN_LANGUAGE_RECOGNITION" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                <p>Highlights of my academic and technical accomplishments</p>
+            </div>
+    
+            <div class="achievements-grid">
+    
+                <!-- Amazon ML -->
+                <div class="achievement-card glow-card">
+                    <h3><i class="fas fa-brain"></i> Amazon ML Summer School 2025</h3>
+                    <p>
+                        Selected among the top 4.3% of 70,000+ applicants nationwide, gaining advanced training in machine learning and deep learning concepts.
+                    </p>
+    
+                    <div class="achievement-proof">
+                        <img src="WhatsApp Image 2026-03-22 at 1.59.20 PM.jpeg" alt="Amazon ML Certificate">
+                    </div>
+                </div>
+    
+                <!-- Flipkart GRID -->
+                <div class="achievement-card glow-card">
+                    <h3><i class="fas fa-code"></i> Flipkart GRiD 7.0</h3>
+                    <p>
+                        National-level Semi-Finalist, outperforming thousands of participants in competitive coding rounds.
+                    </p>
+    
+                    <div class="achievement-proof">
+                        <img src="Screenshot 2026-03-22 at 2.01.17 PM.png" alt="Flipkart GRID Certificate">
+                    </div>
+                </div>
+    
             </div>
         </div>
     </section>
@@ -1371,60 +1565,74 @@
     <div class="certs-container">
         <h2 style="color:#f4f4f6;"><i class="fas fa-certificate" style="color:#f1f1f5;"></i> Certificates</h2>
         <div class="certs-slider" data-current-index="0">
-            <div class="cert-slide">
+            <div class="cert-slide glow-card">
                 <img src="aws.jpg" alt="AWS Certificate ">
                 <div class="cert-info">
                     <h3>AWS Certified</h3>
                     <p>Introduction To Gen-AI - 2024</p>
                 </div>
             </div>
-            <div class="cert-slide">
+            <div class="cert-slide glow-card">
                 <img src="DSA CERTIFICATE ALGOPREP.jpg" alt="DSA Certification from AlgoPrep">
                 <div class="cert-info">
                     <h3>AlgoPrep</h3>
                     <p>DSA Certification - 2024</p>
                 </div>
             </div>
-            <div class="cert-slide">
+            <div class="cert-slide glow-card">
                 <img src="hp.jpg" alt="HP Certification">
                 <div class="cert-info">
                     <h3>HP Certification</h3>
                     <p>Introduction to AI - 2024</p>
                 </div>
             </div>
-            <div class="cert-slide">
+            <div class="cert-slide glow-card">
                 <img src="cca.png" alt="Python certificate from Cambridge Certification Association">
                 <div class="cert-info">
                     <h3>Cambridge Certification Association</h3>
                     <p>Python level-1 - 2024</p>
                 </div>
             </div>
-            <div class="cert-slide">
+            <div class="cert-slide glow-card">
                 <img src="GEEKSFORGEEKS_.jpg" alt="GeeksForGeeks Certification for Python">
                 <div class="cert-info">
                     <h3>GeeksForGeeks</h3>
                     <p>Python - 2025</p>
                 </div>
             </div>
-            <div class="cert-slide">
+            <div class="cert-slide glow-card">
                 <img src="Screenshot 2025-04-13 at 7.42.48 PM.png" alt="Accenture Apprenticeship Certification">
                 <div class="cert-info">
                     <h3>Accenture </h3>
                     <p>Apprenticeship - 2025</p>
                 </div>
             </div>
-            <div class="cert-slide">
+            <div class="cert-slide glow-card">
                 <img src="infosys_page-0001.jpg" alt="Accenture Apprenticeship Certification">
                 <div class="cert-info">
                     <h3>Infosys </h3>
                     <p>Introduction to AI - 2025</p>
                 </div>
             </div>
-            <div class="cert-slide">
+            <div class="cert-slide glow-card">
                 <img src="Excel-Certificate_page-0001.jpg" alt="Accenture Apprenticeship Certification">
                 <div class="cert-info">
                     <h3>OneRoad </h3>
                     <p>Excel Certification - 2025</p>
+                </div>
+            </div>
+            <div class="cert-slide glow-card">
+                <img src="Screenshot 2025-08-15 at 9.35.47 PM.png" alt="EduNet (Microsoft) Internship">
+                <div class="cert-info">
+                    <h3>Edunet</h3>
+                    <p>Edunet (Microsoft) Certification - 2025</p>
+                </div>
+            </div>
+            <div class="cert-slide glow-card">
+                <img src="Screenshot 2026-03-22 at 1.49.48 PM.png" alt="VOIS">
+                <div class="cert-info">
+                    <h3>VOIS</h3>
+                    <p>Data Visualization Certification - 2025</p>
                 </div>
             </div>
             <!-- Add more certificates as needed -->
@@ -1442,10 +1650,10 @@
         <div class="resume-content">
             <p>Get a copy of my complete resume with detailed work experience, education, and skills.</p>
             <div class="download-options">
-                <a href="RESUMEWITHOBJ.pdf" download="Sanskriti_Resume.pdf" class="download-btn" onclick="showPopup('PDF')">
+                <a href="SanskritiResume2026.pdf" download="Sanskriti_Resume.pdf" class="download-btn" glow-card onclick="showPopup('PDF')">
                     <i class="fas fa-file-pdf"></i> PDF Version
                 </a>
-                <a href="RESUMEWITHOBJ.docx" download="Sanskriti_Resume.docx" class="download-btn" onclick="showPopup('Word')">
+                <a href="SanskritiResume2026.docx" download="Sanskriti_Resume.docx" class="download-btn" glow-card onclick="showPopup('Word')">
                     <i class="fas fa-file-word"></i> Word Version
                 </a>
             </div>
@@ -1476,7 +1684,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-linkedin"></i>
-                            <span>linkedin.com/in/sanskriti-pande-6769a12a4</span>
+                            <span>linkedin.com/in/sanskritipande2004</span>
                         </div>
                     </div>
                     
@@ -1484,7 +1692,7 @@
                         <a href="https://github.com/sanskritipande2004" target="_blank" rel="noopener noreferrer">
                           <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/sanskriti-pande-6769a12a4/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/sanskritipande2004/" target="_blank" rel="noopener noreferrer">
                           <i class="fab fa-linkedin"></i>
                         </a>
                         <a href="https://www.instagram.com/_.beautifully_obnoxious._/" target="_blank" rel="noopener noreferrer">
@@ -1500,7 +1708,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Sanskriti Pande. All rights reserved.</p>
+            <p>&copy; 2026 Sanskriti Pande. All rights reserved.</p>
         </div>
     </footer>
 
