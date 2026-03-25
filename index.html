@@ -1242,7 +1242,44 @@
 .achievement-card:hover .achievement-proof img {
     transform: scale(1.05);
 }
+@keyframes floatImage {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 
+.profile-img {
+  animation: floatImage 4s ease-in-out infinite;
+}
+.profile-img {
+  animation: floatImage 4s ease-in-out infinite;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.profile-img {
+  animation: floatImage 4s ease-in-out infinite;
+  border-radius: 20px;
+  transform: scale(1.02);
+
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(167, 139, 250, 0.8),
+    0 0 50px rgba(167, 139, 250, 0.6);
+}
+.profile-img {
+  box-shadow: 0 0 25px rgba(185, 185, 251, 0.4) !important;
+}
+.project-links a {
+  margin-right: 12px;
+  font-weight: 600;
+  color: #b9b9fb;
+}
     </style>
 </head>
 <div id="popup" class="popup-message">Resume is downloading!</div>
